@@ -1,3 +1,40 @@
 body{
-    background-color: rgb(102, 167, 224);
+    background-color: rgb(102, 220, 224);
+}
+
+nav{
+    position: fixed;
+    list-style: none;
+    background:linear-gradient(to right,#288be7,rgb(235, 232, 232),#288be7);
+ width:90%;
+ display: block;
+ padding: 1%;
+ margin: auto;
+
+
+}
+nav a{
+  float:left;
+  font-size: 26px;
+    padding: 10px 14px;
+    display:block;
+    background-color:rgb(88, 111, 112,0.5);
+    border-radius: 10%;
+    text-decoration: none;
+    margin-right: 2%;
+}
+
+/* nav a.active{ 
+    background-color: rgb(236, 110, 26);
+    text-decoration: none;
+    color:white
+}*/
+
+nav a:hover {
+    background-color: #b8eee4;
+    color: black;
+  }
+header{
+ padding-top: 15%;
+  font-size: 30px;
 }

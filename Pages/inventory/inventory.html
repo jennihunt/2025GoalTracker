@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css">
-    <title>inventory Page</title>
+    <title>Inventory Page</title>
 </head>
+
 <body>
     <nav>
         <a href="../../index.html">Home</a>
@@ -13,16 +15,29 @@
         <a href="../Check-Out/checkout.html">Check-Out</a>
         <a href="../BooksDue/booksdue.html">Books Due</a>
     </nav>
-    <header>inventory</header>
+    <!-- saving with local browser storage -->
+
+    <header>Inventory</header>
+
+    <main class="inventoryContainer">
+        <h2>Add Books</h2>
+
+
+        <input type="text" id="todoinput" />
+        <button type="submit" id="addBook">+</button>
+
+
+
+        <ul id="allBooksList">
+
+        </ul>
+    </main>
 
 
 
 
 
 
-
-
-    
 
     <script src="../../JS/script.js"></script>
 </body>

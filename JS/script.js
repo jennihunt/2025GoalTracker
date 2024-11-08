@@ -4,22 +4,21 @@ console.log("hey");
 const inventoryList = document.getElementById("allBooksList");
 const addBookInput = document.getElementById("bookinput");
 const addBookSubmit = document.getElementById("addBook");
-const genreInputs=document.getElementById('genres')
+const genreInputs = document.getElementById("genres");
 
 loadSavedBooks(); //we use this function call to make sure on load our items saved to local storage will show
 
 addBookSubmit.addEventListener("click", addBook);
 
-
 function addBook(e) {
   e.preventDefault();
   const NewBook = addBookInput.value.trim(); //grabs what the user inputs &trims whitespace
   console.log(NewBook);
-  const Genre=genreInputs.options[genreInputs.selectedIndex].text
-console.log(Genre)
-  if (NewBook&&Genre) {
+  const Genre = genreInputs.options[genreInputs.selectedIndex].text;
+  console.log(Genre);
+  if (NewBook && Genre) {
     //this stops the book from being added if user dosnt input a name
-    createBookElememnt(NewBook,Genre);
+    createBookElememnt(NewBook, Genre);
     addBookInput.value = "";
     saveinMyLocalStorage();
   } else {
@@ -30,14 +29,13 @@ console.log(Genre)
 function createBookElememnt(book, genre) {
   const listItem = document.createElement("li");
   listItem.textContent = book;
-  console.log( listItem.textContent.indexOf("Genre") ,
-  listItem.textContent.lastIndexOf("Genre"))
-  if (
-    listItem.textContent.indexOf("Genre") ==
-    listItem.textContent.lastIndexOf("Genre")
-  ) {
-    listItem.textContent += " Genre " + genre;
-  }
+ 
+//   if (     //sandboxed until i can better work out the kinks
+//     listItem.textContent.indexOf("Genre") ==
+//     listItem.textContent.lastIndexOf("Genre")
+//   ) {
+//     listItem.textContent += " Genre " + genre;
+//   }
 
   const deleteBook = document.createElement("button"); //create a delete button on each book added to libraray
   deleteBook.textContent = "Remove from Library";
@@ -52,29 +50,27 @@ function createBookElememnt(book, genre) {
   });
 }
 
-
-
-
 function saveinMyLocalStorage() {
   let books = [];
   console.log("in local storage");
   inventoryList
-    .querySelectorAll("li")//.substring(0,each.lastIndexOf('Genre')).trim()
+    .querySelectorAll("li") //.substring(0,each.lastIndexOf('Genre')).trim()
     .forEach((each) => {
-        // if(each.text){
+      // if(each.text){
 
-        // }
-        books.push(each.textContent.substring(0,each.textContent.lastIndexOf('Remove')))
-}
-    ); //this pushes each book info into the books array
+      // }
+      books.push(
+        each.textContent.substring(0, each.textContent.lastIndexOf("Remove"))
+      );
+    }); //this pushes each book info into the books array
   console.log(books, JSON.stringify(books));
   localStorage.setItem("books", JSON.stringify(books)); //turns info into a JSON to be stored in local storage
 }
 
 //the below function reloads the book inventory so on reload local storage can be viewed
 function loadSavedBooks() {
-    console.log(JSON.parse(localStorage.getItem("books")))
+  console.log(JSON.parse(localStorage.getItem("books")));
   const Books = JSON.parse(localStorage.getItem("books")) || []; //this allows us to transfer our info from JSON back to a string and if local storage is empty then it returns an empty array
-console.log(Books)
+  console.log(Books);
   Books.forEach(createBookElememnt);
 }

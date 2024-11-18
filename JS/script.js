@@ -37,9 +37,9 @@ function showGoal() {
     <div class="goalInfo">
         <textarea disabled>${goalArray[i]}</textarea>
          <div class='checked'>
-            <button class="deletebtn">❌</button>
+            <button class="deletebtn">❌delete</button>
         <button class="editbtn">🛠️Edit</button></div> 
-    
+    </div>
 
     <div class="update">
 <button class="savebtn">Save☑️</button>
@@ -48,50 +48,70 @@ function showGoal() {
 </div>`;
   }
   console.log(myGoals);
-  document.getElementsByClassName("allGoals").innerHTML = myGoals;
-  deleteGoal();
-  // editGoal();
-  // saveGoal();
-  //cancelListner();
+  document.querySelector(".allGoals").innerHTML = myGoals;
+  activatedeleteGoal();
+  editGoal();
+  saveGoal();
+  cancelEdit();
 }
 
-function deleteGoal() {
+function activatedeleteGoal() {
   let dbtn = document.querySelectorAll(".deletebtn");
   dbtn.forEach((each, i) => {
-    each.addEventListener("click", () => delete i);
+    each.addEventListener("click", () => {
+      deleteOne(i);
+    });
   });
 }
 function deleteOne(i) {
   goalArray.splice(i, 1);
+  console.log(goalArray);
   localStorage.setItem("goal", JSON.stringify(goalArray));
   location.reload();
 }
 
-// function saveinMyLocalStorage() {
-//   let books = [];
-//   console.log("in local storage");
-//   inventoryList
-//     .querySelectorAll("li") //.substring(0,each.lastIndexOf('Genre')).trim()
-//     .forEach((each) => {
-//       console.log(each)
-//       // if(each.text){
-
-//       // }
-//       books.push(
-//         each.textContent.substring(0, each.textContent.lastIndexOf("Remove"))
-//       );
-//     }); //this pushes each book info into the books array
-//   console.log(books, JSON.stringify(books));
-//   localStorage.setItem("books", JSON.stringify(books)); //turns info into a JSON to be stored in local storage
-// }
-
-// //the below function reloads the book inventory so on reload local storage can be viewed
-// function loadSavedBooks() {
-//   console.log(JSON.parse(localStorage.getItem("books")));
-//   const Books = JSON.parse(localStorage.getItem("books")) || []; //this allows us to transfer our info from JSON back to a string and if local storage is empty then it returns an empty array
-//   console.log(Books);
-//   Books.forEach(createBookElememnt);
-// }
-window.onload=()=>{
-  showGoal()
+function editGoal() {
+  let editbtn = document.querySelectorAll(".editbtn");
+  const updatefunctionailty = document.querySelectorAll(".update");
+  const textareas = document.querySelectorAll(".goalInfo textarea");
+  editbtn.forEach((each, i) => {
+    each.addEventListener("click", () => {
+      console.log(updatefunctionailty[i].display);
+      updatefunctionailty[i].style.display = "block";
+      textareas[i].disabled = false;
+    });
+  });
 }
+
+function saveGoal() {
+  let savebtn = document.querySelectorAll(".savebtn");
+  const textareas = document.querySelectorAll(".goalInfo textarea");
+  savebtn.forEach((each, i) => {
+    each.addEventListener("click", () => {
+      updateGoal(textareas[1].value, i);
+    });
+  });
+}
+
+function updateGoal(updatedInfo, i) {
+  goalArray[i] = updatedInfo;
+  localStorage.setItem("goal", JSON.stringify(goalArray));
+  location.reload();
+}
+
+function cancelEdit() {
+  const cancelbtn = document.querySelectorAll(".cancelbtn");
+  const updatefunctionailty = document.querySelectorAll(".update");
+  const textareas = document.querySelectorAll(".goalInfo textarea");
+  cancelbtn.forEach((each, i) => {
+    each.addEventListener("click", () => {
+      console.log(updatefunctionailty[i].display);
+      updatefunctionailty[i].style.display = "none";
+      textareas[i].disabled = true;
+    });
+  });
+}
+
+window.onload = () => {
+  showGoal();
+};

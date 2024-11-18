@@ -1,52 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/style.css" />
     <title>Inventory Page</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav>
-        <a href="../../index.html">Home</a>
-        <a href="../inventory/inventory.html">Goals</a>
-       
+      <a href="../../index.html">Home</a>
+      <a href="../inventory/inventory.html">Goals</a>
     </nav>
     <!-- saving with local browser storage -->
 
     <header>My Goals</header>
 
     <main class="inventoryContainer">
-        <h2>Add Goals</h2>
+      <h2>Add Goals</h2>
 
+      <input type="text" id="bookinput" placeholder="Goal" />
 
-        <input type="text" id="bookinput" placeholder="Goal" />
-
-        <!-- <select name="genres" id="genres">
-            <option value="historical">Historical</option>
-            <option value="fiction">Fiction</option>
-            <option value="non-fiction">Non-Fiction</option>
-            <option value="romance">Romance</option>
-            <option value="educational">Educational</option>
-            <option value="other">Other</option>
-         </select> --> <!-- sandboxed until i can work out kinks  -->
-
-        <button type="submit" id="addBook">+</button>
-
-
-
+      <button type="submit" id="addBook">+</button>
     </main>
 
-<div class="allGoals">
-
-</div>
-
-
-
-
+    <div class="allGoals">
+        
+    </div>
 
     <script src="../../JS/script.js"></script>
-</body>
+  </body>
 </html>

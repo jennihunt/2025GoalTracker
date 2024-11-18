@@ -9,13 +9,12 @@ const goalArray = localStorage.getItem("goal")
   ? JSON.parse(localStorage.getItem("goal"))
   : [];
 console.log(goalArray);
-// loadSavedBooks(); //we use this function call to make sure on load our items saved to local storage will show
+
+
 
 addBookSubmit.addEventListener("click", () => {
   const Goal = addBookInput.value.trim(); //grabs what the user inputs &trims whitespace
   console.log(Goal);
-  // const Genre = genreInputs.options[genreInputs.selectedIndex].text;
-  //console.log(Genre);
   if (Goal) {
     //this stops the book from being added if user dosnt input a name
     createGoal(Goal);
@@ -37,8 +36,10 @@ function showGoal() {
     <div class="goalInfo">
         <textarea disabled>${goalArray[i]}</textarea>
          <div class='checked'>
-            <button class="deletebtn">❌delete</button>
-        <button class="editbtn">🛠️Edit</button></div> 
+         <button class='completedbtn'>Completed</button>
+        <button class="deletebtn">❌delete</button>
+        <button class="editbtn">🛠️Edit</button>
+        </div> 
     </div>
 
     <div class="update">
@@ -47,12 +48,13 @@ function showGoal() {
     </div>
 </div>`;
   }
-  console.log(myGoals);
+  // console.log(myGoals);
   document.querySelector(".allGoals").innerHTML = myGoals;
   activatedeleteGoal();
   editGoal();
   saveGoal();
   cancelEdit();
+  completedGoal()
 }
 
 function activatedeleteGoal() {
@@ -111,6 +113,27 @@ function cancelEdit() {
     });
   });
 }
+
+function completedGoal() {
+  const completedbtn = document.querySelectorAll(".completedbtn");
+
+  const textareas = document.querySelectorAll(".goalInfo textarea");
+
+  completedbtn.forEach((each, i) => {
+    each.addEventListener("click", () => {
+      if (textareas[i].className != "completed") {
+        textareas[i].className = "completed";
+        textareas[i].style.textDecoration = "line-through red";
+      } else {
+        textareas[i].className = "";
+        textareas[i].style.textDecoration = "none";
+      }
+    });
+  });
+}
+
+
+
 
 window.onload = () => {
   showGoal();

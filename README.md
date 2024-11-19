@@ -2,7 +2,7 @@
 
 The  2025 Goal tracker helps you keep up with this years goals. This app uses local storage to save the goals added to your computer so as you refresh the goals and info will be saved. You as a user have the ability to add new goals, update exsisting goals,delete goals and mark goals as completed.
 
-![Screenshot of API Fake Store](./client/src/components/assets/images/fakestorescreenshot.jpg)
+![Screenshot of API Fake Store](./css/2025GoalSite.png)
 
 ## Table of Contents
 

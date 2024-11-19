@@ -4,6 +4,8 @@ The  2025 Goal tracker helps you keep up with this years goals. This app uses lo
 
 ![Screenshot of Goal Tracker](./css/2025GoalSite.png)
 
+view webpage live on github @  https://jennihunt.github.io/
+
 ## Table of Contents
 
 - [Installation](#installation)

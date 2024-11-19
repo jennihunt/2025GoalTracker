@@ -10,7 +10,9 @@ const goalArray = localStorage.getItem("goal")
   : [];
 console.log(goalArray);
 
-
+window.onload = () => {
+  showGoal();
+};//amkes sure the goals saved display when the page is loaded to ensure all goals show on refresh
 
 addBookSubmit.addEventListener("click", () => {
   const Goal = addBookInput.value.trim(); //grabs what the user inputs &trims whitespace
@@ -135,6 +137,4 @@ function completedGoal() {
 
 
 
-window.onload = () => {
-  showGoal();
-};
+

@@ -11,7 +11,7 @@ body {
   padding: 1%;
   margin: auto;
   height: 6%;
-
+z-index: 5;
 
 }
 
@@ -20,18 +20,15 @@ body {
   font-size: 26px;
   padding: 10px 14px;
   display: block;
-  background-color: rgb(88, 111, 112, 0.8);
+  background-color: rgb(10, 161, 167);
   border-radius: 10%;
   text-decoration: none;
   margin-right: 2%;
-  height: 60%
+  height: 60%;
+  color: black;
+  text-shadow: 2px 3px 3px white;
 }
 
-/* nav a.active{ 
-    background-color: rgb(236, 110, 26);
-    text-decoration: none;
-    color:white
-} */
 
 #navbar a:hover {
   background-color: #b8eee4;
@@ -70,16 +67,18 @@ body {
 }
 
 
-#intro {
+#intro p{
   font-size: 30px;
   width: 90%;
   margin: auto;
   text-indent: 10%;
+  font-family:cursive;
+  text-shadow: 2px 3px 2px rgb(111, 114, 116);
 }
 
 #navigatebtn {
   margin: auto;
-  
+  margin-top: 2%;
   display: block;
   border-radius: 20%;
   font-size: 20px;

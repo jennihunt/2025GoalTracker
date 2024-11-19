@@ -1,39 +1,39 @@
-console.log("hey");
 
 // this will show the elements that will be used from the HTML page
 const inventoryList = document.getElementById("allGoals");
 const addBookInput = document.getElementById("bookinput");
 const addBookSubmit = document.getElementById("addBook");
-// const genreInputs = document.getElementById("genres");
+
 const goalArray = localStorage.getItem("goal")
   ? JSON.parse(localStorage.getItem("goal"))
   : [];
-console.log(goalArray);
+  //this will hold all of the currentlty saved goals in a easy to access array
+//console.log(goalArray);
 
 window.onload = () => {
   showGoal();
-};//amkes sure the goals saved display when the page is loaded to ensure all goals show on refresh
+};//makes sure the goals saved display when the page is loaded to ensure all goals show on refresh
 
 addBookSubmit.addEventListener("click", () => {
   const Goal = addBookInput.value.trim(); //grabs what the user inputs &trims whitespace
-  console.log(Goal);
+  //console.log(Goal);
   if (Goal) {
-    //this stops the book from being added if user dosnt input a name
+    //this stops the goal from being added if user dosnt input a goal
     createGoal(Goal);
   } else {
     alert("Enter a Goal before submitting");
   }
 });
 
-function createGoal(goal) {
+function createGoal(goal) {//once goal has been entered and saved it will be saved into local storage
   goalArray.push(goal);
   localStorage.setItem("goal", JSON.stringify(goalArray));
   location.reload();
 }
 
-function showGoal() {
+function showGoal() {//this function is called onload so that all goals saved in local storage can be displayed on the goal page
   let myGoals = "";
-  for (let i = 0; i < goalArray.length; i++) {
+  for (let i = 0; i < goalArray.length; i++) {//this creates seperate info for each item in local storage array
     myGoals += `<div id="eachGoal">
     <div class="goalInfo">
        ${i+1+"."} <textarea disabled>${goalArray[i]}</textarea>
@@ -60,7 +60,7 @@ function showGoal() {
   completedGoal()
 }
 
-function activatedeleteGoal() {
+function activatedeleteGoal() {//allows you to delete the specific goal that was triggered by the btn
   let dbtn = document.querySelectorAll(".deletebtn");
   dbtn.forEach((each, i) => {
     each.addEventListener("click", () => {
@@ -75,7 +75,7 @@ function deleteOne(i) {
   location.reload();
 }
 
-function editGoal() {
+function editGoal() { //allows you to edit the specific goal that was triggered by the btn
   let editbtn = document.querySelectorAll(".editbtn");
   const updatefunctionailty = document.querySelectorAll(".update");
   const textareas = document.querySelectorAll(".goalInfo textarea");
@@ -88,7 +88,7 @@ function editGoal() {
   });
 }
 
-function saveGoal() {
+function saveGoal() {//allows you to save the specific goal that was triggered by the btn
   let savebtn = document.querySelectorAll(".savebtn");
   const textareas = document.querySelectorAll(".goalInfo textarea");
   savebtn.forEach((each, i) => {
@@ -98,13 +98,13 @@ function saveGoal() {
   });
 }
 
-function updateGoal(updatedInfo, i) {
+function updateGoal(updatedInfo, i) {//allows you to update the specific goal that was triggered by the btn
   goalArray[i] = updatedInfo;
   localStorage.setItem("goal", JSON.stringify(goalArray));
   location.reload();
 }
 
-function cancelEdit() {
+function cancelEdit() {// allows you to get out of the edit features previously triggered by hitting the update btn
   const cancelbtn = document.querySelectorAll(".cancelbtn");
   const updatefunctionailty = document.querySelectorAll(".update");
   const textareas = document.querySelectorAll(".goalInfo textarea");
@@ -117,7 +117,7 @@ function cancelEdit() {
   });
 }
 
-function completedGoal() {
+function completedGoal() {//allows for a msg to pop up and mark thru the textarea goal when triggered or remove previous mark thru and msg if btn hit again
   const completedbtn = document.querySelectorAll(".completedbtn");
  const msg=document.querySelectorAll('#message')
   const textareas = document.querySelectorAll(".goalInfo textarea");

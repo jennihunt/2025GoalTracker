@@ -2,7 +2,7 @@
 
 The  2025 Goal tracker helps you keep up with this years goals. This app uses local storage to save the goals added to your computer so as you refresh the goals and info will be saved. You as a user have the ability to add new goals, update exsisting goals,delete goals and mark goals as completed.
 
-![Screenshot of API Fake Store](./css/2025GoalSite.png)
+![Screenshot of Goal Tracker](./css/2025GoalSite.png)
 
 ## Table of Contents
 
@@ -19,11 +19,11 @@ The  2025 Goal tracker helps you keep up with this years goals. This app uses lo
 
 1. Clone the repository:
    ```sh
-   git clone [https://github.com/jennihunt/2025GoalTracker.git]
+   git clone [https://github.com/jennihunt/jennihunt.github.io.git]
    ```
 2. Navigate to the project directory:
    ```sh
-   cd 2025GoalTracker
+   cd jennihunt.github.io
    ```
 3. Install the dependencies:
    ```sh

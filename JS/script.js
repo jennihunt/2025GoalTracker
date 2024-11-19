@@ -21,7 +21,7 @@ addBookSubmit.addEventListener("click", () => {
     //this stops the book from being added if user dosnt input a name
     createGoal(Goal);
   } else {
-    alert("Enter a book name");
+    alert("Enter a Goal before submitting");
   }
 });
 
@@ -36,11 +36,12 @@ function showGoal() {
   for (let i = 0; i < goalArray.length; i++) {
     myGoals += `<div id="eachGoal">
     <div class="goalInfo">
-        <textarea disabled>${goalArray[i]}</textarea>
+       ${i+1+"."} <textarea disabled>${goalArray[i]}</textarea>
          <div class='checked'>
-         <button class='completedbtn'>Completed</button>
+         <button class='completedbtn'>✅Mark Goal Completed</button>
         <button class="deletebtn">❌delete</button>
         <button class="editbtn">🛠️Edit</button>
+        <h4 id='message'></h4>
         </div> 
     </div>
 
@@ -118,15 +119,17 @@ function cancelEdit() {
 
 function completedGoal() {
   const completedbtn = document.querySelectorAll(".completedbtn");
-
+ const msg=document.querySelectorAll('#message')
   const textareas = document.querySelectorAll(".goalInfo textarea");
 
   completedbtn.forEach((each, i) => {
     each.addEventListener("click", () => {
       if (textareas[i].className != "completed") {
+        msg[i].innerText="Completed Task ✅"
         textareas[i].className = "completed";
         textareas[i].style.textDecoration = "line-through red";
       } else {
+         msg[i].innerText=""
         textareas[i].className = "";
         textareas[i].style.textDecoration = "none";
       }

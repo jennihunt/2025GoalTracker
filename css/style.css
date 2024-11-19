@@ -106,9 +106,10 @@ text-align: center;
   text-shadow: 2px 3px 3px rgb(79, 79, 238);
 }
 .inventoryContainer{
-width: 50%;
+width: 90%;
 margin: auto;
 margin-bottom: 2%;
+text-align: center;
 }
 .inventoryContainer ,.inventoryContainer input{
 font-size: 20px;
